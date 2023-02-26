@@ -19,6 +19,8 @@ namespace ConsAppSmallTasks
                 "\narrow" +
                 "\npoint <double_x> <double_y>" +
                 "\ntable" +
+                "\nsort" +
+                "\nemail" +
                 "\n--------------------");
             Console.BackgroundColor = ConsoleColor.Black;
         }
@@ -43,44 +45,52 @@ namespace ConsAppSmallTasks
                             Help();
                             break;
 
+                        //Task 1
                         case "isprime":
                             int n = int.Parse(cmd[1]);
-                            if (PrimeTest.IsPrimeNuber(n))
+                            if (FuncLib.IsPrimeNuber(n))
                                 Console.WriteLine($"Number {n} is prime");
                             else
                                 Console.WriteLine($"Number {n} is not prime");
                             break;
 
+                        //Task 2
                         case "isleapyear":
                             int year = int.Parse(cmd[1]);
-                            if (LeapYearTest.IsLeapYear(year))
+                            if (FuncLib.IsLeapYear(year))
                                 Console.WriteLine($"{year} == leap year");
                             else
                                 Console.WriteLine($"{year} != leap year");
                             break;
 
+                        //Task 3
                         case "arrow":
-                            ArrowArrowing.Launch();
+                            FuncLib.Arrow();
                             break;
 
+                        //Task 4
                         case "point":
                             double x = double.Parse(cmd[1]);
                             double y = double.Parse(cmd[2]);
-                            if (PointTest.IsInsideCircle(x, y))
+                            if (FuncLib.IsInsideCircle(x, y))
                                 Console.WriteLine("Point found inside circle");
                             else
                                 Console.WriteLine("Point is not inside circle");
                             break;
 
+                        //Task 5
                         case "table":
-                            for (int i = 1; i <= 10; i++)
-                            {
-                                for (int j = 1; j <= 10; j++)
-                                {
-                                    Console.Write("{0,4}", i * j);
-                                }
-                                Console.WriteLine();
-                            }
+                            FuncLib.DrawTable();
+                            break;
+
+                        //Task 6
+                        case "sort":
+                            FuncLib.SortFileOfStrings();
+                            break;
+
+                        //Task 7
+                        case "email":
+                            FuncLib.Email();
                             break;
 
                         default:
