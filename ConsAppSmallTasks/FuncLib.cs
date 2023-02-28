@@ -163,43 +163,7 @@ namespace ConsAppSmallTasks
 
         public static void Email()
         {
-            // Получаем почтовый адрес получателя от пользователя
-            Console.Write("Введите адрес получателя: ");
-            string recipient = Console.ReadLine();
-
-            // Валидируем почтовый адрес с помощью регулярного выражения
-            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
-            if (!regex.IsMatch(recipient))
-            {
-                Console.WriteLine("Некорректный адрес получателя.");
-                return;
-            }
-
-            try
-            {
-                // Создаем объект MailMessage с настройками сообщения
-                MailMessage message = new MailMessage();
-                //message.From = new MailAddress("ваш_адрес_яндекс.почты@yandex.ru");
-                message.From = new MailAddress("theshdis@gmail.com");
-                message.To.Add(new MailAddress(recipient));
-                message.Subject = "Test message";
-                message.Body = "This is test message";
-
-                // Создаем объект SmtpClient с настройками SMTP-сервера Яндекса
-                SmtpClient smtp = new SmtpClient("smtp.yandex.ru", 587);
-                //smtp.Credentials = new NetworkCredential("ваш_адрес_яндекс.почты@yandex.ru", "ваш_пароль_яндекс.почты");
-                smtp.Credentials = new NetworkCredential("d89635479952@yandex.ru", "password");
-                smtp.EnableSsl = true;
-
-                // Отправляем сообщение
-                smtp.Send(message);
-
-                Console.WriteLine("Message sent.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-            }
+            
         }
     }
 }
